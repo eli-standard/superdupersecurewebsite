@@ -1,0 +1,7 @@
+.DS_Store
+# .env intentionally committed — this repo is a secrets-scanner test fixture
+/node_modules/
+
+# React Router
+/.react-router/
+/build/

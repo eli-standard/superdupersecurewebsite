@@ -1,0 +1,39 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATABASE_URL: postgres://acme_admin:SuperSecret123!@db:5432/acme_notes
+      JWT_SECRET: acme-notes-jwt-signing-key-do-not-share-2024
+      STRIPE_SECRET_KEY: sk_test_51HqFakeStripeKeyForScannerDemo999abcXYZ1234567890
+      AWS_ACCESS_KEY_ID: AKIAIOSFODNN7EXAMPLE
+      AWS_SECRET_ACCESS_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+      SENDGRID_API_KEY: SG.fakeSendgridKey.abcdefghijklmnopqrstuvwxyz1234567890ABCDEFG
+    depends_on:
+      - db
+
+  web:
+    build: ./my-react-router-app
+    ports:
+      - "5173:3000"
+    environment:
+      VITE_API_BASE_URL: http://localhost:3001/api
+      VITE_PUBLIC_API_KEY: pk_live_acmeNotesFrontendKey_abcdefghijklmnopqrstuv
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: acme_admin
+      POSTGRES_PASSWORD: SuperSecret123!
+      POSTGRES_DB: acme_notes
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
