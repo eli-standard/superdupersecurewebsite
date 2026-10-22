@@ -24,8 +24,8 @@ Client code lives in `my-react-router-app/app/lib/api.ts`.
 
 | Area | Examples |
 |------|----------|
-| `backend/.env` | DB URL, JWT secret, Stripe, AWS, GitHub PAT, SendGrid |
-| `backend/.env.example` | Placeholders / redacted values (false-positive controls) |
+| `backend/.env` | DB URL, JWT secret, Stripe, AWS, GitHub PAT, SendGrid | should get skipped over but there will be a warning since it is not in gitignore
+| `backend/.env.example` | Placeholders / redacted values | should get skipped over
 | `backend/src/config/secrets.js` | Hardcoded AWS, Slack, Stripe, SendGrid, GitHub |
 | `backend/src/db.js` | Postgres connection string with password |
 | `backend/src/middleware/auth.js` | JWT signing secret, bearer token, admin password |
