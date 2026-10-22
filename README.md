@@ -37,4 +37,4 @@ Client code lives in `my-react-router-app/app/lib/api.ts`.
 | `my-react-router-app/app/lib/config.ts` | Hardcoded API / Stripe / analytics keys |
 | `my-react-router-app/app/lib/auth.ts` | Staging JWT leftover in comments + code |
 
-## This does not actually run it's just for the scanner to test on
+## This does not actually run it's just for the scanner to test on 
