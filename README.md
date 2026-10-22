@@ -20,12 +20,12 @@ The UI talks to `http://localhost:3001/api`:
 
 Client code lives in `my-react-router-app/app/lib/api.ts`.
 
-## Where secrets were planted (for scanner assertions)
+## Where secrets were planted 
 
 | Area | Examples |
 |------|----------|
-| `backend/.env` | DB URL, JWT secret, Stripe, AWS, GitHub PAT, SendGrid |
-| `backend/.env.example` | Placeholders / redacted values (false-positive controls) |
+| `backend/.env` | DB URL, JWT secret, Stripe, AWS, GitHub PAT, SendGrid | should get skipped over but there will be a warning since it is not in gitignore
+| `backend/.env.example` | Placeholders / redacted values | should get skipped over
 | `backend/src/config/secrets.js` | Hardcoded AWS, Slack, Stripe, SendGrid, GitHub |
 | `backend/src/db.js` | Postgres connection string with password |
 | `backend/src/middleware/auth.js` | JWT signing secret, bearer token, admin password |
@@ -37,4 +37,4 @@ Client code lives in `my-react-router-app/app/lib/api.ts`.
 | `my-react-router-app/app/lib/config.ts` | Hardcoded API / Stripe / analytics keys |
 | `my-react-router-app/app/lib/auth.ts` | Staging JWT leftover in comments + code |
 
-## This jawn does not actually run it's just for the scanner to test on
+## This does not actually run it's just for the scanner to test on
